@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T04:34:48.333Z",
+  "title": "Design System: Tulipán café",
+  "extensions": {
+    "colorMeta": {
+      "espresso": {
+        "role": "neutral",
+        "displayName": "Burnt Espresso",
+        "canonical": "#1a1412",
+        "tonalRamp": [
+          "#2d231f",
+          "#503d37",
+          "#72584f",
+          "#957267",
+          "#ad9289",
+          "#c5b2ab",
+          "#ddd1cd",
+          "#f5f1f0"
+        ]
+      },
+      "roast": {
+        "role": "neutral",
+        "displayName": "Dark Roast",
+        "canonical": "#3a2418",
+        "tonalRamp": [
+          "#362216",
+          "#5f3b27",
+          "#895539",
+          "#b26e4a",
+          "#c48f71",
+          "#d5af9b",
+          "#e6d0c4",
+          "#f8f1ed"
+        ]
+      },
+      "bronze": {
+        "role": "neutral",
+        "displayName": "Bronze Crema",
+        "canonical": "#6b3f25",
+        "tonalRamp": [
+          "#392114",
+          "#643b23",
+          "#8f5432",
+          "#bb6e41",
+          "#cc8e6a",
+          "#daaf95",
+          "#e9d0c1",
+          "#f8f1ec"
+        ]
+      },
+      "caramel": {
+        "role": "primary",
+        "displayName": "Caramel Glow",
+        "canonical": "#c98b4b",
+        "tonalRamp": [
+          "#3b2712",
+          "#68441f",
+          "#95612d",
+          "#c17f3a",
+          "#d19c65",
+          "#deb992",
+          "#ecd5bf",
+          "#f9f2eb"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Warm Cream",
+        "canonical": "#f3e6d3",
+        "tonalRamp": [
+          "#3c2a10",
+          "#6a4b1d",
+          "#986b29",
+          "#c58b36",
+          "#d4a662",
+          "#e1c08f",
+          "#eddabd",
+          "#faf4eb"
+        ]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Ivory Foam",
+        "canonical": "#f8f1e7",
+        "tonalRamp": [
+          "#3b2a11",
+          "#684a1e",
+          "#956a2c",
+          "#c38a39",
+          "#d2a564",
+          "#dfbf91",
+          "#ecd9be",
+          "#f9f3eb"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Parchment",
+        "canonical": "#faf5ec",
+        "tonalRamp": [
+          "#3d2d10",
+          "#6b4f1c",
+          "#997128",
+          "#c79334",
+          "#d5ac60",
+          "#e1c48f",
+          "#eedcbd",
+          "#faf4eb"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Bean Ink",
+        "canonical": "#2b1b13",
+        "tonalRamp": [
+          "#352117",
+          "#5d3b29",
+          "#86543b",
+          "#ae6d4d",
+          "#c28e74",
+          "#d3af9c",
+          "#e5d0c5",
+          "#f7f1ed"
+        ]
+      },
+      "olive": {
+        "role": "secondary",
+        "displayName": "Olive Leaf",
+        "canonical": "#6b7f3a",
+        "tonalRamp": [
+          "#2c3518",
+          "#4e5d2a",
+          "#70853d",
+          "#91ad4f",
+          "#abc075",
+          "#c3d29d",
+          "#dce5c5",
+          "#f4f7ed"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product names, logo, cart title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and UI text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, pills, buttons, meta."
+      },
+      "script": {
+        "displayName": "Script",
+        "purpose": "Eyebrow phrase and logo suffix, once per section."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 8px 24px rgba(0,0,0,.3)",
+        "purpose": "Product cards."
+      },
+      {
+        "name": "drawer-scrim",
+        "value": "rgba(0,0,0,.55)",
+        "purpose": "Cart drawer overlay."
+      }
+    ],
+    "motion": [
+      {
+        "name": "color-fade",
+        "value": "transition-colors (150ms default)",
+        "purpose": "Button, pill and link hover."
+      },
+      {
+        "name": "card-lift",
+        "value": "translateY(-4px)",
+        "purpose": "Product card hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav",
+        "value": "820px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call to action: caramel fill, cream on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Comprar café</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:16px 28px;border-radius:8px;background:#c98b4b;color:#1a1412;font:700 16px 'DM Sans',sans-serif;text-decoration:none;transition:background .2s}.ds-btn-primary:hover{background:#f3e6d3}.ds-btn-primary:focus-visible{outline:2px solid #f3e6d3;outline-offset:2px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on dark backgrounds.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Descubre nuestros granos</a>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:16px 28px;border-radius:8px;border:1px solid #f3e6d3;color:#f8f1e7;font:400 16px 'DM Sans',sans-serif;text-decoration:none;transition:background .2s}.ds-btn-outline:hover{background:rgba(243,230,211,.1)}.ds-btn-outline:focus-visible{outline:2px solid #c98b4b;outline-offset:2px}"
+    },
+    {
+      "name": "Filter Pill",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "Toggle chip for filters; caramel when pressed.",
+      "html": "<button class=\"ds-pill\" aria-pressed=\"false\">Medio</button> <button class=\"ds-pill\" aria-pressed=\"true\">Claro</button>",
+      "css": ".ds-pill{min-height:44px;padding:10px 18px;border-radius:9999px;border:1px solid #6b3f25;background:transparent;color:#f8f1e7;font:500 14px 'DM Sans',sans-serif;cursor:pointer;transition:background .2s}.ds-pill[aria-pressed=true]{background:#c98b4b;border-color:#c98b4b;color:#1a1412}.ds-pill:focus-visible{outline:2px solid #c98b4b;outline-offset:2px}"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "Roast-toned card with striped packaging placeholder, tag chip, price in caramel.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-img\">empaque · Huila<span class=\"ds-tag\">Nuevo</span></div><div class=\"ds-card-body\"><h3>Huila</h3><div class=\"ds-notes\">Caramelo, nuez, cítrico suave</div><div class=\"ds-row\"><span class=\"ds-price\">Desde $220 MXN</span><span class=\"ds-add\">Agregar</span></div></div></article>",
+      "css": ".ds-card{width:280px;border-radius:12px;overflow:hidden;background:#3a2418;box-shadow:0 8px 24px rgba(0,0,0,.3);color:#f8f1e7;font-family:'DM Sans',sans-serif;transition:transform .2s}.ds-card:hover{transform:translateY(-4px)}.ds-card-img{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font:12px monospace;color:#f3e6d3;background:repeating-linear-gradient(135deg,#4a2e1f 0 12px,#3f271a 12px 24px)}.ds-tag{position:absolute;left:12px;top:12px;border-radius:9999px;background:#f3e6d3;color:#2b1b13;padding:4px 10px;font:700 12px 'DM Sans',sans-serif}.ds-card-body{padding:20px}.ds-card h3{margin:0;font:400 22px 'DM Serif Display',serif}.ds-notes{margin:4px 0 16px;font-size:14px;color:#f3e6d3}.ds-row{display:flex;justify-content:space-between;align-items:center}.ds-price{font-weight:700;font-size:18px;color:#c98b4b}.ds-add{min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:8px;background:#c98b4b;color:#1a1412;font:700 14px 'DM Sans',sans-serif}"
+    },
+    {
+      "name": "Email Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Newsletter field: espresso fill, caramel border on focus.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"tu@correo.com\" aria-label=\"Correo electrónico\">",
+      "css": ".ds-input{min-height:52px;min-width:240px;padding:14px 16px;border-radius:8px;border:1px solid #6b3f25;background:#1a1412;color:#f8f1e7;font:400 16px 'DM Sans',sans-serif;outline:none}.ds-input:focus{border-color:#c98b4b}.ds-input::placeholder{color:#a8927f}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky espresso header with serif logo, script suffix, links and cart button.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-logo\" href=\"#\">Tulipán<span>café</span></a><nav><a href=\"#\">Tienda</a><a href=\"#\">Nosotros</a></nav><button class=\"ds-cart\">Carrito <b>0</b></button></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 24px;background:#1a1412;border-bottom:1px solid #3a2418;font-family:'DM Sans',sans-serif}.ds-logo{display:flex;align-items:baseline;gap:6px;font:400 26px 'DM Serif Display',serif;color:#f8f1e7;text-decoration:none}.ds-logo span{font:600 22px 'Caveat',cursive;color:#c98b4b}.ds-nav nav{display:flex;gap:32px}.ds-nav nav a{color:#f8f1e7;text-decoration:none;font-size:15px}.ds-nav nav a:hover{color:#c98b4b}.ds-cart{min-height:44px;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid #6b3f25;background:transparent;color:#f8f1e7;font:500 14px 'DM Sans',sans-serif;cursor:pointer}.ds-cart:hover{border-color:#c98b4b}.ds-cart b{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:9999px;background:#c98b4b;color:#1a1412;font-size:12px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Roastery",
+    "overview": "A dark room lit by the glow of the roaster. Everything sits on a deep espresso canvas; caramel is the single warm light that tells you where to act. Headlines are set in a high-contrast display serif, with a handwritten script accent (Caveat) used sparingly like a note scribbled on a bag. The mood is intimate, hand-made and unhurried, not clinical or startup-slick.",
+    "keyCharacteristics": [
+      "Dark-first: espresso page, roast cards, bronze for bands and borders.",
+      "One accent (caramel) for actions, prices and selected states.",
+      "Serif display + friendly sans body + occasional script flourish.",
+      "Soft 8–12px corners, solid fills, gentle hover lift."
+    ],
+    "rules": [
+      {
+        "name": "The One Flame Rule",
+        "body": "Caramel is the only accent. If two things on a screen glow caramel, one of them is wrong; it marks the action, the price, or the selection.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted Dark Rule",
+        "body": "No pure black or pure white. Darks are brown-tinted (espresso, roast); lights are warm (ivory, cream).",
+        "section": "colors"
+      },
+      {
+        "name": "The Whisper Script Rule",
+        "body": "Caveat appears once per section at most, as an eyebrow or suffix, never for body copy or buttons.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Step Rule",
+        "body": "Separate surfaces by shifting one step in the brown ramp before reaching for a shadow or border.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the page espresso and raise surfaces to roast, then bronze.",
+      "Do reserve caramel for actions, prices and selection.",
+      "Do use DM Serif Display for headings and product names, DM Sans for everything functional.",
+      "Do keep touch targets at 44px or more (buttons 52px).",
+      "Do use `px-gutter` for horizontal page padding."
+    ],
+    "donts": [
+      "Don't use pure black or pure white; stay with the brown-tinted ramp.",
+      "Don't add a second accent color alongside caramel (olive is for success only).",
+      "Don't use Caveat for paragraphs, buttons or more than one eyebrow per section.",
+      "Don't stack heavy shadows or glass effects; the system is tonal.",
+      "Don't present the placeholder packaging or demo content as final product imagery."
+    ]
+  }
+}

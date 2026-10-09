@@ -1,0 +1,16 @@
+---
+import { REVIEWS } from '../config/site';
+---
+
+<section class="px-gutter py-20">
+  <h2 class="mb-9 font-serif text-[clamp(32px,4vw,48px)] font-normal">Lo que dicen en casa</h2>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-5">
+    {REVIEWS.map((r) => (
+      <figure class="rounded-xl bg-roast p-7">
+        <div class="mb-3 tracking-[3px] text-caramel" aria-label="5 estrellas">★★★★★</div>
+        <blockquote class="mb-5 text-[17px] leading-[1.55] text-pretty">“{r.quote}”</blockquote>
+        <figcaption class="text-sm text-cream">{r.author}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #1a1412;
+  --color-roast: #3a2418;
+  --color-bronze: #6b3f25;
+  --color-caramel: #c98b4b;
+  --color-cream: #f3e6d3;
+  --color-ivory: #f8f1e7;
+  --color-paper: #faf5ec;
+  --color-ink: #2b1b13;
+  --color-olive: #6b7f3a;
+
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-script: "Caveat", cursive;
+
+  --spacing-gutter: clamp(20px, 5vw, 64px);
+}
+
+@layer base {
+  body {
+    @apply bg-espresso font-sans text-ivory;
+  }
+  a {
+    @apply text-caramel hover:text-cream;
+  }
+}
+
+@layer components {
+  .px-gutter {
+    padding-inline: var(--spacing-gutter);
+  }
+  .btn-primary {
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-caramel px-7 py-4 font-bold text-espresso transition-colors hover:bg-cream hover:text-espresso;
+  }
+  .btn-outline {
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-cream px-7 py-4 text-ivory transition-colors hover:bg-cream/10 hover:text-ivory;
+  }
+  .pill {
+    @apply min-h-[44px] cursor-pointer rounded-full border border-bronze px-[18px] py-2.5 text-sm font-medium transition-colors;
+  }
+  .pill[aria-pressed="true"] {
+    @apply border-caramel bg-caramel text-espresso;
+  }
+  .package-placeholder {
+    background: repeating-linear-gradient(135deg, #4a2e1f 0 12px, #3f271a 12px 24px);
+  }
+}

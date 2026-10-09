@@ -1,0 +1,16 @@
+---
+import { products } from '../config/products';
+import ProductCard from './ProductCard.astro';
+
+const featured = products.slice(0, 4);
+---
+
+<section class="px-gutter py-20">
+  <div class="mb-9 flex flex-wrap items-end justify-between gap-4">
+    <h2 class="font-serif text-[clamp(32px,4vw,48px)] font-normal">Los favoritos de la casa</h2>
+    <a href="/tienda" class="font-medium">Ver toda la tienda →</a>
+  </div>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-5">
+    {featured.map((p) => <ProductCard product={p} />)}
+  </div>
+</section>

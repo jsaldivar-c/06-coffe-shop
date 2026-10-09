@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products, shopFilters } from '../../config/products';
+---
+
+<BaseLayout title="Tienda" description="Todos nuestros cafés de especialidad.">
+  <main class="px-gutter pb-20 pt-14">
+    <div class="font-script text-[26px] text-caramel">tienda</div>
+    <h1 class="mb-7 font-serif text-[clamp(38px,5vw,60px)] font-normal">Todos nuestros cafés</h1>
+    <div class="mb-3 flex flex-wrap gap-2.5">
+      {shopFilters.map((f) => (
+        <button type="button" data-filter={f} aria-pressed={f === 'Todos'} class="pill">{f}</button>
+      ))}
+    </div>
+    <div class="mb-7 text-sm text-cream"><span data-count>{products.length} productos</span> · Ordenar: más vendidos</div>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,240px),1fr))] gap-5">
+      {products.map((p) => <ProductCard product={p} variant="shop" />)}
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import '../../scripts/shop-filter';
+</script>

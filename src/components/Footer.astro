@@ -1,0 +1,22 @@
+---
+import { FOOTER_COLUMNS, PAYMENT_METHODS, SITE } from '../config/site';
+---
+
+<footer class="px-gutter grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-8 bg-roast pb-8 pt-14 text-[15px]">
+  <div class="col-span-2 min-w-[200px]">
+    <div class="font-serif text-[26px]">{SITE.name} <span class="font-script text-caramel">{SITE.suffix}</span></div>
+    <p class="mt-2 max-w-[280px] leading-normal text-cream">Café de especialidad, tostado en lotes pequeños.</p>
+  </div>
+  {FOOTER_COLUMNS.map((col) => (
+    <div class="grid content-start gap-2.5">
+      <b>{col.title}</b>
+      {col.links.map((l) => <span>{l}</span>)}
+    </div>
+  ))}
+  <div class="col-span-full flex flex-wrap justify-between gap-x-5 gap-y-2.5 border-t border-bronze pt-5 text-[13px] text-cream">
+    <span class="flex flex-nowrap gap-2.5 whitespace-nowrap text-[clamp(11px,3vw,13px)]">
+      {PAYMENT_METHODS.map((m) => <span>{m}</span>)}
+    </span>
+    <span class="whitespace-nowrap">© {new Date().getFullYear()} {SITE.name} {SITE.suffix}</span>
+  </div>
+</footer>

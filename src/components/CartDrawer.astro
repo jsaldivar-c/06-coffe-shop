@@ -1,0 +1,39 @@
+---
+import { SITE } from '../config/site';
+import { money } from '../utils/format';
+---
+
+<div data-cart-drawer class="hidden">
+  <div data-cart-toggle class="fixed inset-0 z-40 bg-black/55"></div>
+  <aside class="fixed inset-y-0 right-0 z-50 flex w-[min(420px,100%)] flex-col gap-4 border-l border-bronze bg-espresso p-6" aria-label="Carrito">
+    <div class="flex items-center justify-between">
+      <span class="font-serif text-[28px]">Tu carrito</span>
+      <button type="button" data-cart-toggle aria-label="Cerrar" class="size-11 cursor-pointer text-[22px] leading-[44px]">×</button>
+    </div>
+    <div class="text-sm text-cream">
+      <span data-ship-msg>Envío gratis desde {money(SITE.freeShippingFrom)}</span>
+      <div class="mt-2 h-1.5 rounded-full bg-roast"><div data-ship-bar class="h-1.5 rounded-full bg-caramel" style="width:0%"></div></div>
+    </div>
+    <div class="grid flex-1 content-start gap-3 overflow-auto">
+      <div data-cart-empty class="py-6 text-cream">Aún no hay nada por aquí.</div>
+      <div data-cart-items class="grid gap-3"></div>
+    </div>
+    <div class="flex justify-between text-lg"><span>Subtotal</span><b data-cart-subtotal class="text-caramel">$0 MXN</b></div>
+    <button type="button" class="btn-primary">Finalizar compra</button>
+  </aside>
+</div>
+
+<template id="cart-item-template">
+  <div class="flex justify-between gap-3 rounded-[10px] bg-roast p-3.5">
+    <div><div data-name class="font-bold"></div><div data-sub class="text-[13px] text-cream"></div></div>
+    <div data-price class="font-bold text-caramel"></div>
+  </div>
+</template>
+
+<div data-toast class="fixed left-1/2 top-[84px] z-[60] hidden -translate-x-1/2 rounded-lg bg-olive px-5 py-3 font-medium text-ivory" role="status">
+  Agregado al carrito
+</div>
+
+<script>
+  import '../scripts/cart';
+</script>

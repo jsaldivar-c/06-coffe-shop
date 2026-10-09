@@ -1,0 +1,12 @@
+---
+import { BENEFITS } from '../config/site';
+---
+
+<section class="px-gutter grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-7 bg-roast py-9">
+  {BENEFITS.map((b) => (
+    <div>
+      <div class="mb-1 font-serif text-[21px] text-cream">{b.title}</div>
+      <div class="text-[15px] leading-normal">{b.description}</div>
+    </div>
+  ))}
+</section>

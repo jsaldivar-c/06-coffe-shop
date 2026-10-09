@@ -16,20 +16,20 @@ const shop = variant === 'shop';
   data-product
   data-type={p.type}
   data-roast={p.roast}
-  class="group relative overflow-hidden rounded-xl bg-roast shadow-[0_8px_24px_rgba(0,0,0,.3)] transition-transform hover:-translate-y-1"
+  class="group relative overflow-hidden rounded-xl bg-roast shadow-[0_8px_24px_rgba(0,0,0,.3)] motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out hover:-translate-y-1"
 >
   <div class="package-placeholder relative flex aspect-square items-center justify-center font-mono text-xs text-cream">
     empaque · {p.name}
-    {p.tag && <span class="absolute left-3 top-3 rounded-full bg-cream px-2.5 py-1 font-sans text-xs font-bold text-ink">{p.tag}</span>}
+    {p.tag && <span class="absolute left-3 top-3 rounded-full bg-tulip px-2.5 py-1 font-sans text-xs font-bold text-ivory">{p.tag}</span>}
   </div>
   <div class="p-5">
-    <h3 class="font-serif text-[22px]">
+    <h3 class="text-[22px] leading-tight">
       <a href={`/tienda/${p.slug}`} class="text-ivory after:absolute after:inset-0 hover:text-ivory">{p.name}</a>
     </h3>
     <div class:list={['mt-1 text-sm text-cream', shop ? 'mb-1' : 'mb-4']}>{p.notes}</div>
     {shop && <div class="mb-4 text-[13px] text-caramel">Tostado {p.roast.toLowerCase()} · 250 g / 500 g / 1 kg</div>}
     <div class="flex items-center justify-between">
-      <span class="text-lg font-bold text-caramel">Desde {money(p.base)}</span>
+      <span class="price text-lg font-bold text-caramel">Desde {money(p.base)}</span>
       {shop ? (
         <button
           type="button"
@@ -37,10 +37,10 @@ const shop = variant === 'shop';
           data-name={p.name}
           data-sub="250 g · Grano entero"
           data-price={p.base}
-          class="relative z-10 min-h-[44px] cursor-pointer rounded-lg bg-caramel px-4 py-2.5 text-sm font-bold text-espresso hover:bg-cream"
+          class="relative z-10 min-h-[44px] cursor-pointer rounded-lg bg-caramel px-4 py-2.5 text-sm font-bold text-espresso transition-[background-color,transform] duration-150 hover:bg-cream active:scale-[0.96]"
         >Agregar</button>
       ) : (
-        <span class="rounded-lg border border-cream px-3.5 py-2 text-sm">Ver</span>
+        <span class="inline-flex min-h-11 items-center rounded-lg border border-cream px-3.5 text-sm transition-colors duration-200 group-hover:bg-cream group-hover:text-espresso">Ver</span>
       )}
     </div>
   </div>

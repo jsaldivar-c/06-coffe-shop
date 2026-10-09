@@ -16,6 +16,14 @@ function load(): CartItem[] {
 
 let cart = load();
 let toastTimer: number | undefined;
+let justAdded = false;
+
+function replay(el: Element | null | undefined, cls: string) {
+  if (!el) return;
+  el.classList.remove(cls);
+  void (el as HTMLElement).offsetWidth;
+  el.classList.add(cls);
+}
 
 function save() {
   try {
@@ -35,19 +43,25 @@ function render() {
   $('[data-ship-msg]')!.textContent = left
     ? `Te faltan ${money(left)} para envío gratis`
     : 'Tienes envío gratis';
-  $<HTMLElement>('[data-ship-bar]')!.style.width = Math.min(100, (subtotal / SITE.freeShippingFrom) * 100) + '%';
+  const bar = $<HTMLElement>('[data-ship-bar]')!;
+  bar.style.width = Math.min(100, (subtotal / SITE.freeShippingFrom) * 100) + '%';
+  bar.classList.toggle('bg-olive-soft', !left);
+  bar.classList.toggle('bg-caramel', !!left);
+  $('[data-ship-msg]')!.classList.toggle('text-olive-soft', !left);
 
   const list = $('[data-cart-items]')!;
   const tpl = $<HTMLTemplateElement>('#cart-item-template')!;
   list.replaceChildren(
-    ...cart.map((item) => {
+    ...cart.map((item, i) => {
       const node = tpl.content.cloneNode(true) as DocumentFragment;
       node.querySelector('[data-name]')!.textContent = item.name;
       node.querySelector('[data-sub]')!.textContent = item.sub;
       node.querySelector('[data-price]')!.textContent = money(item.price);
+      if (justAdded && i === cart.length - 1) node.firstElementChild!.classList.add('anim-item');
       return node;
     }),
   );
+  justAdded = false;
 }
 
 function setOpen(open: boolean) {
@@ -58,9 +72,12 @@ function setOpen(open: boolean) {
 function add(item: CartItem) {
   cart = [...cart, item];
   save();
+  justAdded = true;
   render();
+  document.querySelectorAll('[data-cart-count]').forEach((el) => replay(el, 'anim-bump'));
   const toast = $('[data-toast]')!;
   toast.classList.remove('hidden');
+  replay(toast, 'anim-toast');
   clearTimeout(toastTimer);
   toastTimer = window.setTimeout(() => toast.classList.add('hidden'), 1600);
 }

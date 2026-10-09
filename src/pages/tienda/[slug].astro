@@ -18,7 +18,7 @@ const modes = [
 
 <BaseLayout title={p.name} description={p.description}>
   <main data-product-detail data-slug={p.slug} class="px-gutter pb-[120px] pt-8">
-    <div class="mb-6 text-sm text-cream"><a href="/tienda">← Tienda</a> / {p.name}</div>
+    <div class="mb-6 flex items-center gap-2 text-sm text-cream"><a href="/tienda" class="inline-flex min-h-11 items-center gap-1.5"><svg viewBox="0 0 20 20" class="size-4 fill-none stroke-current stroke-2" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tienda</a><span aria-hidden="true">/</span><span>{p.name}</span></div>
     <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(24px,5vw,64px)]">
       <div>
         <div class="flex aspect-square items-center justify-center rounded-xl font-mono text-[13px] text-cream [background:repeating-linear-gradient(135deg,#4a2e1f_0_14px,#3f271a_14px_28px)]">foto · empaque {p.name}</div>
@@ -30,17 +30,17 @@ const modes = [
       </div>
 
       <div>
-        <div class="text-sm tracking-[3px] text-caramel">★★★★★ <span class="tracking-normal text-cream">4.9 · 128 reseñas</span></div>
-        <h1 class="my-2 font-serif text-[clamp(36px,5vw,56px)] font-normal leading-[1.05]">{p.name}</h1>
-        <p class="mb-5 text-[17px] leading-normal text-cream">{p.description}</p>
-        <div data-total class="mb-6 text-[32px] font-bold text-caramel">{money(p.base)}</div>
+        <div class="flex items-center gap-3 text-sm"><span class="flex gap-0.5 text-caramel" role="img" aria-label="5 estrellas"><svg viewBox="0 0 20 20" class="size-4 fill-current" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" class="size-4 fill-current" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" class="size-4 fill-current" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" class="size-4 fill-current" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" class="size-4 fill-current" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="text-cream">4.9 · 128 reseñas</span></div>
+        <h1 class="mb-3 mt-3 text-[clamp(36px,5vw,56px)] leading-[1.05]">{p.name}</h1>
+        <p class="mb-6 max-w-[52ch] text-[17px] leading-[1.55] text-cream text-pretty">{p.description}</p>
+        <div data-total class="price mb-8 text-[32px] font-bold text-caramel">{money(p.base)}</div>
 
-        <div class="mb-2 text-[13px] uppercase tracking-[.08em]">Presentación</div>
+        <div class="mb-2 text-[13px] font-medium uppercase tracking-[.08em] text-cream">Presentación</div>
         <div data-group="size" class="mb-5 flex flex-wrap gap-2.5">
-          {sizes.map((s, i) => <button type="button" data-index={i} aria-pressed={i === 0} class="pill !rounded-lg !px-[22px] !py-3">{s.label}</button>)}
+          {sizes.map((s, i) => <button type="button" data-index={i} aria-pressed={i === 0} class="pill pill-rect">{s.label}</button>)}
         </div>
 
-        <div class="mb-2 text-[13px] uppercase tracking-[.08em]">Molienda</div>
+        <div class="mb-2 text-[13px] font-medium uppercase tracking-[.08em] text-cream">Molienda</div>
         <div data-group="grind" class="mb-5 flex flex-wrap gap-2.5">
           {grinds.map((g, i) => <button type="button" data-index={i} aria-pressed={i === 0} class="pill">{g}</button>)}
         </div>
@@ -52,15 +52,15 @@ const modes = [
                 <span data-dot class:list={['size-2 rounded-full', i === 0 && 'bg-caramel']}></span>
               </span>
               <span class="flex-1 font-medium">{m.label}</span>
-              <span class="text-sm text-cream">{m.sub}<span data-mode-price>{money(priceFor(p.base, 0, m.sale))}</span></span>
+              <span class:list={["text-sm", m.sale ? "text-olive-soft" : "text-cream"]}>{m.sub}<span data-mode-price>{money(priceFor(p.base, 0, m.sale))}</span></span>
             </div>
           ))}
         </div>
 
         <button type="button" data-add-current class="btn-primary block min-h-[56px] w-full text-[17px]">Agregar al carrito</button>
 
-        <div class="mt-9 grid gap-3.5">
-          <div class="font-serif text-[22px]">Perfil de sabor</div>
+        <div class="mt-10 grid gap-3.5">
+          <h2 class="text-[22px]">Perfil de sabor</h2>
           {labels.map((k, i) => (
             <div class="grid grid-cols-[90px_1fr] items-center gap-3.5 text-sm">
               <span>{k}</span>
@@ -69,7 +69,7 @@ const modes = [
           ))}
         </div>
 
-        <dl class="mt-9 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-roast pt-6 text-sm">
+        <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-roast pt-6 text-sm">
           {originLabels.map((k, i) => (
             <div><dt class="text-xs uppercase tracking-[.08em] text-caramel">{k}</dt><dd class="mt-0.5">{p.origin[i]}</dd></div>
           ))}
@@ -79,7 +79,7 @@ const modes = [
   </main>
 
   <div class="fixed inset-x-0 bottom-0 z-30 flex items-center gap-4 border-t border-bronze bg-espresso px-5 py-3 min-[820px]:hidden">
-    <b data-total class="text-xl text-caramel">{money(p.base)}</b>
+    <b data-total class="price text-xl text-caramel">{money(p.base)}</b>
     <button type="button" data-add-current class="btn-primary min-h-12 flex-1 !py-3.5">Agregar al carrito</button>
   </div>
 </BaseLayout>

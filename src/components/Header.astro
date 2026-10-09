@@ -3,26 +3,26 @@ import { NAV_LINKS, SITE } from '../config/site';
 ---
 
 <header class="px-gutter sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-roast bg-espresso py-4">
-  <a href="/" class="flex items-baseline gap-1.5 font-serif text-[26px] text-ivory hover:text-ivory">
-    {SITE.name}<span class="font-script text-[22px] text-caramel">{SITE.suffix}</span>
+  <a href="/" class="flex items-baseline gap-1.5 font-serif text-[26px] leading-none text-ivory hover:text-ivory">
+    {SITE.name}<span class="font-script text-[34px] leading-none text-caramel">{SITE.suffix}</span>
   </a>
 
   <nav class="hidden gap-8 text-[15px] min-[820px]:flex" aria-label="Principal">
-    {NAV_LINKS.map((l) => <a href={l.href} class="text-ivory hover:text-caramel">{l.label}</a>)}
+    {NAV_LINKS.map((l) => <a href={l.href} class="text-ivory underline-offset-8 hover:text-caramel hover:underline">{l.label}</a>)}
   </nav>
 
   <div class="flex items-center gap-3">
-    <button type="button" data-cart-toggle class="flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg border border-bronze px-4 py-2.5 text-sm font-medium hover:border-caramel">
+    <button type="button" data-cart-toggle class="flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg border border-bronze px-4 py-2.5 text-sm font-medium transition-colors hover:border-caramel">
       Carrito
-      <span data-cart-count class="inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-caramel text-xs font-bold text-espresso">0</span>
+      <span data-cart-count class="inline-flex h-[22px] min-w-[22px] origin-center items-center justify-center rounded-full bg-caramel text-xs font-bold text-espresso">0</span>
     </button>
     <button type="button" data-menu-toggle aria-label="Menú" aria-expanded="false" class="flex size-11 cursor-pointer flex-col items-center justify-center gap-[5px] min-[820px]:hidden">
-      <span class="h-0.5 w-[22px] bg-ivory"></span><span class="h-0.5 w-[22px] bg-ivory"></span><span class="h-0.5 w-[22px] bg-ivory"></span>
+      <span class="h-0.5 w-[22px] rounded-full bg-ivory"></span><span class="h-0.5 w-[22px] rounded-full bg-ivory"></span><span class="h-0.5 w-[22px] rounded-full bg-ivory"></span>
     </button>
   </div>
 </header>
 
-<div data-mobile-menu class="px-gutter hidden flex-col bg-roast pb-5 pt-2 text-lg min-[820px]:!hidden">
+<div data-mobile-menu class="px-gutter anim-fade hidden flex-col bg-roast pb-5 pt-2 text-lg min-[820px]:!hidden">
   {NAV_LINKS.map((l, i) => (
     <a href={l.href} class:list={['block py-3.5 text-ivory', i < NAV_LINKS.length - 1 && 'border-b border-bronze']}>{l.label}</a>
   ))}

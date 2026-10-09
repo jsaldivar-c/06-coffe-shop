@@ -7,8 +7,8 @@ const featured = products.slice(0, 4);
 
 <section class="px-gutter py-20">
   <div class="mb-9 flex flex-wrap items-end justify-between gap-4">
-    <h2 class="font-serif text-[clamp(32px,4vw,48px)] font-normal">Los favoritos de la casa</h2>
-    <a href="/tienda" class="font-medium">Ver toda la tienda →</a>
+    <h2 class="text-[clamp(32px,4vw,48px)] leading-[1.1]">Los favoritos de la casa</h2>
+    <a href="/tienda" class="group/link inline-flex min-h-11 items-center gap-2 font-medium">Ver toda la tienda <svg viewBox="0 0 20 20" class="size-4 transition-transform duration-200 ease-out group-hover/link:translate-x-1 fill-none stroke-current stroke-2" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
   <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-5">
     {featured.map((p) => <ProductCard product={p} />)}

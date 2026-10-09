@@ -10,20 +10,49 @@
   --color-paper: #faf5ec;
   --color-ink: #2b1b13;
   --color-olive: #6b7f3a;
+  --color-olive-soft: #a9c06a;
+  --color-tulip: #b93a2e;
+  --color-tulip-soft: #ee8b7d;
+  --color-tulip-deep: #3b1218;
 
-  --font-sans: "DM Sans", sans-serif;
-  --font-serif: "DM Serif Display", serif;
-  --font-script: "Caveat", cursive;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Young Serif", Georgia, serif;
+  --font-script: "Reenie Beanie", cursive;
 
   --spacing-gutter: clamp(20px, 5vw, 64px);
 }
 
 @layer base {
+  html {
+    color-scheme: dark;
+    scrollbar-color: var(--color-bronze) var(--color-espresso);
+  }
   body {
-    @apply bg-espresso font-sans text-ivory;
+    @apply bg-espresso font-sans text-ivory antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif font-normal text-balance;
+    letter-spacing: -0.01em;
   }
   a {
-    @apply text-caramel hover:text-cream;
+    @apply text-caramel underline-offset-4 transition-colors hover:text-cream;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-caramel);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-caramel);
+    color: var(--color-espresso);
+  }
+  input:user-invalid {
+    border-color: var(--color-tulip-soft);
+  }
+  ::placeholder {
+    color: color-mix(in oklab, var(--color-cream) 55%, var(--color-espresso));
   }
 }
 
@@ -32,18 +61,70 @@
     padding-inline: var(--spacing-gutter);
   }
   .btn-primary {
-    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-caramel px-7 py-4 font-bold text-espresso transition-colors hover:bg-cream hover:text-espresso;
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-caramel px-7 py-4 font-bold text-espresso transition-colors hover:bg-cream hover:text-espresso active:translate-y-px;
   }
   .btn-outline {
-    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-cream px-7 py-4 text-ivory transition-colors hover:bg-cream/10 hover:text-ivory;
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-cream px-7 py-4 text-ivory transition-colors hover:bg-cream/10 hover:text-ivory active:translate-y-px;
   }
   .pill {
-    @apply min-h-[44px] cursor-pointer rounded-full border border-bronze px-[18px] py-2.5 text-sm font-medium transition-colors;
+    @apply min-h-[44px] cursor-pointer rounded-full border border-bronze px-[18px] py-2.5 text-sm font-medium transition-[background-color,border-color,color,transform] duration-150 hover:border-caramel active:scale-[0.97];
+  }
+  .pill-rect {
+    @apply rounded-lg px-[22px] py-3;
   }
   .pill[aria-pressed="true"] {
     @apply border-caramel bg-caramel text-espresso;
   }
   .package-placeholder {
     background: repeating-linear-gradient(135deg, #4a2e1f 0 12px, #3f271a 12px 24px);
+  }
+  .price {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@theme {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, -8px); }
+}
+@keyframes bump {
+  40% { transform: scale(1.35); }
+}
+@keyframes item-in {
+  from { opacity: 0; transform: translateY(-6px); background-color: var(--color-bronze); }
+}
+
+@layer utilities {
+  .anim-rise { animation: rise 0.7s var(--ease-out-expo) backwards; animation-delay: var(--d, 0ms); }
+  .anim-fade { animation: fade-in 0.2s ease-out; }
+  .anim-drawer { animation: slide-in-right 0.35s var(--ease-out-expo); }
+  .anim-toast { animation: toast-in 0.25s var(--ease-out-expo); }
+  .anim-bump { animation: bump 0.35s var(--ease-out-expo); }
+  .anim-item { animation: item-in 0.5s var(--ease-out-expo); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise, .anim-drawer { animation-name: fade-in; }
+  .anim-bump { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

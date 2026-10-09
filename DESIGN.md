@@ -11,31 +11,35 @@ colors:
   paper: "#faf5ec"
   ink: "#2b1b13"
   olive: "#6b7f3a"
+  olive-soft: "#a9c06a"
+  tulip: "#b93a2e"
+  tulip-soft: "#ee8b7d"
+  tulip-deep: "#3b1218"
 typography:
   display:
-    fontFamily: "DM Serif Display, serif"
+    fontFamily: "Young Serif, Georgia, serif"
     fontSize: "clamp(44px, 7vw, 84px)"
     fontWeight: 400
     lineHeight: 1
   headline:
-    fontFamily: "DM Serif Display, serif"
+    fontFamily: "Young Serif, Georgia, serif"
     fontSize: "clamp(28px, 3.5vw, 40px)"
     fontWeight: 400
   title:
-    fontFamily: "DM Serif Display, serif"
+    fontFamily: "Young Serif, Georgia, serif"
     fontSize: "22px"
     fontWeight: 400
   body:
-    fontFamily: "DM Sans, sans-serif"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.55
   label:
-    fontFamily: "DM Sans, sans-serif"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "14px"
     fontWeight: 500
   script:
-    fontFamily: "Caveat, cursive"
+    fontFamily: "Reenie Beanie, cursive"
     fontSize: "28px"
     fontWeight: 600
 rounded:
@@ -90,7 +94,7 @@ components:
 
 **Creative North Star: "The Night Roastery"**
 
-A dark room lit by the glow of the roaster. Everything sits on a deep espresso canvas; caramel is the single warm light that tells you where to act. Headlines are set in a high-contrast display serif, with a handwritten script accent (Caveat) used sparingly like a note scribbled on a bag. The mood is intimate, hand-made and unhurried, not clinical or startup-slick.
+A dark room lit by the glow of the roaster. Everything sits on a deep espresso canvas; caramel is the single warm light that tells you where to act. Headlines are set in a high-contrast display serif, with a handwritten script accent (Reenie Beanie) kept to the logo like a signature on a bag. The mood is intimate, hand-made and unhurried, not clinical or startup-slick.
 
 Density is relaxed: generous section padding, short lines, one idea per band. Surfaces are tonal (espresso → roast → bronze) rather than bordered or glassy. Product packaging is currently a striped placeholder, so the system leans on type and color, not imagery, for character.
 
@@ -108,7 +112,8 @@ A coffee-derived, warm-brown palette: near-black roast tones, one caramel accent
 - **Caramel** (`colors.caramel`, #c98b4b): primary buttons, prices, links, selected pills, cart count badge, progress bar, script accent.
 
 ### Secondary
-- **Olive Leaf** (`colors.olive`, #6b7f3a): success toast ("Agregado al carrito") only.
+- **Tulip Red** (`colors.tulip`, #b93a2e): the brand's second voice. Announcement bar and product tag chips (ivory text). **Tulip Deep** (#3b1218) is the Story band surface; **Tulip Soft** (#ee8b7d) marks invalid input.
+- **Olive Leaf** (`colors.olive`, #6b7f3a) and **Olive Soft** (#a9c06a): success and savings (toast, subscription discount, free-shipping reached).
 
 ### Neutral
 - **Espresso** (`colors.espresso`, #1a1412): page background, header, drawer, input fields, text on caramel.
@@ -116,20 +121,23 @@ A coffee-derived, warm-brown palette: near-black roast tones, one caramel accent
 - **Bronze** (`colors.bronze`, #6b3f25): newsletter band, outlined controls, dividers.
 - **Cream** (`colors.cream`, #f3e6d3): secondary text, hover fill on primary, outline-button border, tag chips.
 - **Ivory** (`colors.ivory`, #f8f1e7): default body text.
-- **Paper** (`colors.paper`, #faf5ec) and **Ink** (`colors.ink`, #2b1b13): light-surface pairing; ink is used for text on cream chips.
+- **Paper** (#faf5ec) and **Ink** (#2b1b13): currently unused; the page no longer has a beige band.
 
 ### Named Rules
-**The One Flame Rule.** Caramel is the only accent. If two things on a screen glow caramel, one of them is wrong; it marks the action, the price, or the selection.
+**The No Beige Band Rule.** Large surfaces are espresso, roast, tulip-deep or caramel, never cream or paper.
+
+### Named Rules
+**The One Flame Rule.** Caramel is the only action color; tulip red is for emphasis and tags, never buttons. If two things on a screen glow caramel, one of them is wrong; it marks the action, the price, or the selection.
 
 **The Tinted Dark Rule.** No pure black or pure white. Darks are brown-tinted (espresso, roast); lights are warm (ivory, cream).
 
 ## Typography
 
-**Display Font:** DM Serif Display (serif fallback)
-**Body Font:** DM Sans (sans-serif fallback), weights 400/500/700
-**Script Font:** Caveat 600 (cursive fallback)
+**Display Font:** Young Serif (serif fallback)
+**Body Font:** Hanken Grotesk (sans-serif fallback), weights 400/500/700
+**Script Font:** Reenie Beanie (cursive fallback)
 
-**Character:** The serif brings craft and warmth to headlines and product names; DM Sans keeps shopping tasks clear; Caveat adds a human, handwritten whisper.
+**Character:** The serif brings craft and warmth to headlines and product names; Hanken Grotesk keeps shopping tasks clear; Reenie Beanie adds a human, handwritten whisper.
 
 ### Hierarchy
 - **Display** (400, clamp 44–84px, line-height 1): hero headline.
@@ -137,10 +145,10 @@ A coffee-derived, warm-brown palette: near-black roast tones, one caramel accent
 - **Title** (400, 22–28px): product names, cart title, logo (26px).
 - **Body** (400, 16–18px, ~1.55): descriptions; keep to ~480px (about 60–70ch).
 - **Label** (500–700, 13–15px): nav, pills, buttons, meta lines.
-- **Script** (600, 22–28px, caramel): eyebrow phrases like "tostado cada semana" and the "café" logo suffix.
+- **Script** (600, 22–28px, caramel): the "café" logo suffix.
 
 ### Named Rules
-**The Whisper Script Rule.** Caveat appears once per section at most, as an eyebrow or suffix, never for body copy or buttons.
+**The Logo Script Rule.** Reenie Beanie is reserved for the logo suffix. No eyebrows above headings, never body copy or buttons.
 
 ## Layout
 
@@ -156,6 +164,9 @@ Mostly flat and tonal: depth comes from stepping between espresso, roast and bro
 
 ### Named Rules
 **The Tonal Step Rule.** Separate surfaces by shifting one step in the brown ramp before reaching for a shadow or border.
+
+### Motion
+Quiet and decelerating: one ease-out-expo curve (`cubic-bezier(0.16, 1, 0.3, 1)`). The hero text rises once on load (700ms, 90ms stagger). Feedback is 150–350ms: add-to-cart bumps the cart badge, slides the toast in and highlights the new cart row; the drawer slides in from the right over a fading scrim; buttons and pills press to 0.96–0.97; the "Ver" chip fills on card hover. Reduced motion keeps fades and drops movement.
 
 ## Shapes
 
@@ -195,13 +206,13 @@ Right-anchored espresso panel with a bronze left border, a caramel free-shipping
 ### Do:
 - **Do** keep the page espresso and raise surfaces to roast, then bronze.
 - **Do** reserve caramel for actions, prices and selection.
-- **Do** use DM Serif Display for headings and product names, DM Sans for everything functional.
+- **Do** use Young Serif for headings and product names, Hanken Grotesk for everything functional.
 - **Do** keep touch targets at 44px or more (buttons 52px).
 - **Do** use `px-gutter` for horizontal page padding.
 
 ### Don't:
 - **Don't** use pure black or pure white; stay with the brown-tinted ramp.
 - **Don't** add a second accent color alongside caramel (olive is for success only).
-- **Don't** use Caveat for paragraphs, buttons or more than one eyebrow per section.
+- **Don't** use Reenie Beanie beyond the logo suffix, and never put an eyebrow above a heading.
 - **Don't** stack heavy shadows or glass effects; the system is tonal.
 - **Don't** present the placeholder packaging or demo content as final product imagery.
